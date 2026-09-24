@@ -1,0 +1,10 @@
+# 忽略整个 .cursor/docs 目录及其下全部内容（规则仅作用于本目录，且锚定在awakeno 根）
+/.cursor/docs/
+
+# 本地平台/IDE 目录（源码在 ../../platform，MDK 工程与编译产物仅本地使用）
+/CMSIS/
+/gd32e10x/
+/MDK-ARM/
+/Materials/
+/docs/
+/out/
