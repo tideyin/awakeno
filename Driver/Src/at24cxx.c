@@ -39,6 +39,7 @@ OF SUCH DAMAGE.
 #include <stdio.h>
 #include "rlk_cdc.h"
 #include "rlk_gpio.h"
+#include "systick.h"
 
 
 
@@ -160,7 +161,8 @@ void i2c_eeprom_init(void)
   //  gpio_init(GPIOC, GPIO_MODE_OUT_PP, GPIO_OSPEED_50MHZ, EEPROM_A0 | EEPROM_A1 | EEPROM_A2);
   //  gpio_bit_reset(GPIOC, EEPROM_A0 | EEPROM_A1 | EEPROM_A2);
 
-    gpio_init(EEPROM_WP_PORT, GPIO_MODE_OUT_PP, GPIO_OSPEED_50MHZ, EEPROM_WP_PIN);  //  gpio_bit_reset(EEPROM_WR_PORT, EEPROM_WR_PIN);
+    gpio_init(EEPROM_WP_PORT, GPIO_MODE_OUT_PP, GPIO_OSPEED_50MHZ, EEPROM_WP_PIN);
+  //  gpio_bit_reset(EEPROM_WR_PORT, EEPROM_WR_PIN);
  //   gpio_bit_set(EEPROM_WR_PORT, EEPROM_WR_PIN);
      rlk_gpio_set_value(EEPROM_WP_PORT, EEPROM_WP_PIN, 0);  // 0 , no protect
      delay_1ms(10) ;
@@ -185,7 +187,7 @@ void i2c_eeprom_deinit(void)
     if(g_s_eeprom_init_flag == FALSE)
         return;
 
-    eeprom_address = NULL;
+    eeprom_address = 0;
 
     /* configure I2C */
 

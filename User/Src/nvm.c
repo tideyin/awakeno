@@ -5,10 +5,13 @@
 // *                           linkedin/wechat: tideyin *
 // ******************************************************
 
+#include <string.h>
 #include "gd32e10x.h"
 #include "nvm.h"
 #include "rlk_cmd.h"
 #include "rlk_gpio.h"
+#include "at24cxx.h"
+#include "printf.h"
 
 
 

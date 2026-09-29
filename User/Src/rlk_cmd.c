@@ -27,6 +27,8 @@
 #include "gt22l16a2y.h"
 #include "ir_snd_rcv.h"
 #include "uart_adapter.h"
+#include "at24cxx.h"
+#include "systick.h"
 
 #include "printf.h"
 #include "cmb_cfg.h"

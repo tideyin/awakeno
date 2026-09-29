@@ -54,7 +54,7 @@ typedef enum {
 
 
 void sys_para_load(void);
-void run_cmd_handle(char *cmd);
+void run_cmd_handler(char *cmd);
 void show_logo_state(void);
 void show_product_state(void);
 void show_device_state(void);

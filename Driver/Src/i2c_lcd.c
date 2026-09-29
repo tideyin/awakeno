@@ -9,6 +9,7 @@
 #include "fontlib.h"
 #include "gt22l16a2y.h"
 #include "gd32e10x.h"
+#include "systick.h"
 #include <stdlib.h>
 
 
@@ -140,7 +141,7 @@ void I2C_LCD_Init()
 	Init_I2C();
 	// Init LCD
 	// UCB0I2CSA = LCD_ADDR; // For LCD address
-	delay_while_us(100000);
+	delay_while_ms(100); /* OLED power-on settle (~100 ms; was us(100000) truncated by uint16) */
 
 	WriteCmd(0xAE); //display off
 	WriteCmd(0x20); //Set Memory Addressing Mode

@@ -8,6 +8,8 @@
 #include "gd32e10x_rcu.h"
 #include "gd32e10x_gpio.h"
 #include "rlk_gpio.h"
+#include "i2c.h"
+#include "printf.h"
 
 extern uint8_t hw_ver ;
 
@@ -44,10 +46,10 @@ int rlk_gpio_init(rlk_gpio_t *gpio_config, uint32_t gpios)
 			rlk_gpio_set_value(gpio_config[i].port, gpio_config[i].pin, gpio_config[i].value);
     } 
 
-	  /* configure COM_I2C GPIO */
-	  i2c_gpio_config(COM_I2C_PORT , RCU_I2C1 , COM_I2C_PORT , COM_I2C_PINS);
+	  /* configure COM_I2C GPIO (rcu_port must be RCU_* enum, not GPIO base) */
+	  i2c_gpio_config(RCU_GPIOB, RCU_I2C1, COM_I2C_PORT, COM_I2C_PINS);
 	  /* configure FUN_I2C GPIO */
-	  i2c_gpio_config(FUN_I2C_PORT , RCU_I2C0 , FUN_I2C_PORT , FUN_I2C_PINS);
+	  i2c_gpio_config(RCU_GPIOB, RCU_I2C0, FUN_I2C_PORT, FUN_I2C_PINS);
 
 
 		
